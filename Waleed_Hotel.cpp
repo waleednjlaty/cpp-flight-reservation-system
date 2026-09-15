@@ -108,6 +108,11 @@ void printflight(flight fli[5])
 //--------------------------------------------
 void Bookflight(rese res[50], flight fli[5], int &resCount)
 {
+    if (resCount >= 50)
+    {
+        cout << "Reservation limit reached.\n";
+        return;
+    }
 
     bool find = false;
 
@@ -145,7 +150,7 @@ void Bookflight(rese res[50], flight fli[5], int &resCount)
                 cout << "Incorrect entry. Please enter again: ";
                 cin >> res[resCount].seat;
             }
-            if (res[resCount].seat == 0)
+            if (res[resCount].seat <= 0)
             {
                 cout << "The required number of seats is not available.\n";
                 break;
